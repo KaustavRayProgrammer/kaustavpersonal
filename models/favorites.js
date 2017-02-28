@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // grab the things we need
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -19,4 +20,27 @@ var favoriteSchema = new Schema({
 var Favorites = mongoose.model('Favorite', favoriteSchema);
 
 // make this available to our Node applications
+=======
+// grab the things we need
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var favoriteSchema = new Schema({
+    postedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+	projects: [{
+		type: mongoose.Schema.Types.ObjectId,
+        ref: 'Project'
+	}]
+}, {
+    timestamps: true
+});
+
+// we need to create a model using it
+var Favorites = mongoose.model('Favorite', favoriteSchema);
+
+// make this available to our Node applications
+>>>>>>> aed2a748081fb537e44191336086bcba4e945cbb
 module.exports = Favorites ;
